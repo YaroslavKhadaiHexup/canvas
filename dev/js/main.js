@@ -136,13 +136,13 @@ function init() {
     var elementsNumber = window.innerWidth / 4 + window.innerHeight / 4;
 
     for (i = 0; i < elementsNumber; i++) {
+        var rad = Math.random() * 10 + 2;
         //coordinates
         var x = Math.random() * (innerWidth - rad * 2);
         var y = Math.random() * (innerHeight - rad * 2);
         //velocity
         var dx = (Math.random() - 0.5) * 0.8;
         var dy = (Math.random() - 0.5) * 0.8;
-        var rad = Math.random() * 10 + 2;
 
         circleArray.push(new Circle(x, y, dx, dy, rad));
     }
@@ -151,7 +151,7 @@ init();
 
 function animate() {
     requestAnimationFrame(animate);
-    c.clearRect(0, 0, innerWidth, innerHeight);
+    c.clearRect(0, 0, innerWidth, innerHeight); //can be removed if you need 'tail' effect
 
     for ( i = 0; i < circleArray.length; i++){
         circleArray[i].update();
